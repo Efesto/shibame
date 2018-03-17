@@ -13,16 +13,20 @@ app.get('/', (request, response) => {
   response.send('Woof!');
 });
 
+Array.prototype.random = function() {
+  return this[Math.floor(Math.random() * this.length)];
+}
+
 app.get('/random', (request, response) => {
   client.blogPosts(
     'shibalovers.tumblr.com',
     { type: 'photo', limit: 100 },
     (err, data) => {
-      const photos = data.posts[0].photos
-      const shiba = photos[Math.floor(Math.random() * photos.length)];
+      const post = data.posts.random();
+      const shiba = post.photos.random();
       response.json(
         {
-          shiba: shiba.original_size.url
+          shiba: shiba.alt_sizes[0].url
         }
       );
     });
