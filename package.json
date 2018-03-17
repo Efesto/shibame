@@ -1,0 +1,28 @@
+{
+  "name": "shibame",
+  "version": "1.0.0",
+  "description": "Shiba inus provider for hubot-shibame",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Efesto/shibame.git"
+  },
+  "keywords": [
+    "shiba",
+    "hubot",
+    "shiba inu"
+  ],
+  "author": "Marco \"Efesto\" Polita",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Efesto/shibame/issues"
+  },
+  "homepage": "https://github.com/Efesto/shibame#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
