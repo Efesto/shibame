@@ -20,7 +20,7 @@ Array.prototype.random = function() {
 app.get('/random', (request, response) => {
   client.blogPosts(
     'shibalovers.tumblr.com',
-    { type: 'photo', limit: 100 },
+    { type: 'photo', limit: 500 },
     (err, data) => {
       const post = data.posts.random();
       const shiba = post.photos.random();
