@@ -1,6 +1,7 @@
+require('./array');
+require('./keep_awake');
 const express = require('express');
 const tumblr = require('tumblr.js');
-require('./keep_awake');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -12,10 +13,6 @@ var client = tumblr.createClient(
 app.get('/', (request, response) => {
   response.send('Woof!');
 });
-
-Array.prototype.random = function() {
-  return this[Math.floor(Math.random() * this.length)];
-}
 
 app.get('/random', (request, response) => {
   const blogs = [
