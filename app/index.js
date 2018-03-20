@@ -4,7 +4,7 @@ require('./keep_awake');
 
 const app = express();
 const port = process.env.PORT || 3000;
-const tumblr_consume_key = process.env.TUMBLR_CONSUMER_KEY
+const tumblr_consume_key = process.env.TUMBLR_CONSUMER_KEY;
 var client = tumblr.createClient(
   { consumer_key: tumblr_consume_key }
 );
@@ -18,8 +18,13 @@ Array.prototype.random = function() {
 }
 
 app.get('/random', (request, response) => {
-  client.blogPosts(
+  const blogs = [
     'shibalovers.tumblr.com',
+    'shibasommelier.tumblr.com',
+    'mensweardog.tumblr.com'
+  ];
+  client.blogPosts(
+    blogs.random(),
     { type: 'photo', limit: 500 },
     (err, data) => {
       const post = data.posts.random();
