@@ -11,6 +11,7 @@ app.get('/', (request, response) => {
 });
 
 require('./shibas').register(app);
+require('./restaurants').register(app);
 
 app.listen(port, (err) => {
   if (err) {
