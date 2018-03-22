@@ -11,7 +11,11 @@ const register = app => {
 
 const extractMenu = body => {
   const $ = cheerio.load(body);
-  return $("#c449").children("p").text();
+  const menuEntries = [];
+  $("#c449 > p").each(
+    (i, p) => menuEntries.push($(p).text())
+  );
+  return menuEntries.join('\n');
 }
 
 exports.register = register
