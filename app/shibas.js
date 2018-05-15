@@ -30,6 +30,7 @@ const register = (app) => {
     getPosts.then(data => {
       const post = data.posts.random();
       const shiba = post.photos.random();
+      response.setHeader('Access-Control-Allow-Origin', '*');
       response.json(
         {
           shiba: shiba.alt_sizes[0].url
@@ -45,6 +46,7 @@ const register = (app) => {
   app.get('/many', (request, response) => {
     getPosts.then(data => {
       const posts = data.posts;
+      response.setHeader('Access-Control-Allow-Origin', '*');
       response.json(
         {
           shibas: posts.map(s => {
